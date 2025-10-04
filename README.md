@@ -1,231 +1,205 @@
-# Super-Store-Analysis
-This analysis aims to extract business insights from e-commerce order data to inform sales, marketing, and customer retention strategy.
+# 🛒 SuperStore Sales & Marketing Analytics  
 
-Sales & Marketing Analytics Report
+**Author:** *Your Name*  
+**Tools Used:** Python, Pandas, Matplotlib, Seaborn  
+**Dataset:** [SuperStore Orders (Kaggle)](https://www.kaggle.com/datasets)  
+**Objective:** To analyze e-commerce sales and marketing data to uncover trends, customer behavior, and actionable insights for business growth.
 
+---
 
-* Dataset: Superstore E-commerce Orders
+## 📘 Project Overview  
 
-* Tools used: Python, Pandas, Matplotlib, Seaborn
+This project performs **Sales & Marketing Analytics** on an e-commerce dataset (SuperStore Orders).  
+It explores key performance indicators (KPIs), customer segmentation, regional performance, and discount effectiveness to derive **data-driven recommendations** for improving profitability and retention.
 
-	<img width="435" height="272" alt="image" src="https://github.com/user-attachments/assets/6d39f6a4-1a70-4633-b47a-6344729178fa" />
+---
 
+## 🧩 Skills & Techniques Demonstrated  
 
-* Author: Bhawna Kumari
+- **Data Cleaning & Preprocessing** (handling missing values, parsing dates, data type conversions)  
+- **Exploratory Data Analysis (EDA)** using Pandas, Matplotlib, and Seaborn  
+- **Cohort Analysis** (repeat customers and retention trends)  
+- **Customer Segmentation** (high vs low spenders)  
+- **Revenue Analysis** by category, region, and customer segment  
+- **Visualization Dashboards** (sales trends, profit patterns, shipping analysis)
 
+---
 
+## 📊 Dataset Summary  
 
-1. Project Overview & Objectives
+- **Total Records:** 25,035 orders  
+- **Unique Customers:** 795  
+- **Unique Products:** 10,292  
+- **Time Period Covered:** Multi-year e-commerce transactions  
+- **Key Columns:**  
+  - Order ID, Order Date, Ship Date, Customer Name, Segment, Region, Market, Category, Sub-Category, Sales, Profit, Discount, Shipping Cost  
 
-This analysis aims to extract business insights from e-commerce order data to inform sales, marketing, and customer retention strategy. The key objectives are:
+<img width="587" height="609" alt="image" src="https://github.com/user-attachments/assets/e3a2d73c-cc7f-487d-8e5a-5f0590685f0d" />
 
-a. Understand historical sales trends over time.
+---
 
-b. Decompose revenue by category and region to reveal high/low performing segments.
-			
-c. Analyze repeat customers (cohort analysis, segmentation) to measure loyalty and retention.
-			
-d. Segment customers (by spend / frequency) using RFM / clustering.
-			
-e. Present findings in a clean, narrative dashboard/visualization for stakeholders.
+## 📈 Key Takeaways from the Analysis  
 
+### **Overall Performance**
+| Metric | Value |
+|:-------|:------|
+| **Total Sales** | **$12,642,905** |
+| **Total Profit** | **$1,469,035** |
+| **Profit Margin** | **11.62%** |
+| **Average Order Value (AOV)** | **$505.01** |
+| **Total Orders** | **25,035** |
+| **Unique Customers** | **795** (100% repeat customers → excellent retention) |
+| **Unique Products** | **10,292** |
+| **Average Shipping Days** | **3.97 days** |
 
+💡 *The business shows strong customer retention and consistent order volume, with a healthy overall profit margin.*
 
-2. Data Preparation & Cleaning
+---
 
-A. Loading & parsing
+### 🏆 **Top Performers**
 
-* Read the CSV with pd.read_csv(...); parse date columns into datetime types.
-<img width="1125" height="233" alt="image" src="https://github.com/user-attachments/assets/78deca24-7aa3-4a48-bd26-82fdb81a82b3" />
-<img width="1490" height="409" alt="image" src="https://github.com/user-attachments/assets/82d37bcc-42b0-4e22-9e26-5f620caaaa43" />
+- **Top-Selling Products:**  
+  Dominated by **Technology** and **Furniture** categories.  
+  *“Apple Smart Phone, Full Size”* is the best-selling product.
+<img width="1146" height="632" alt="image" src="https://github.com/user-attachments/assets/4efcdffe-db35-49bd-a87d-8690fb242ed3" />
 
 
-* Use pd.to_datetime() with dayfirst=True to correctly interpret DD-MM-YYYY style dates.
+  
+- **Top-Profit Products:**  
+  *“Canon imageCLASS 2200 Advanced Copier”* yields the highest profit.
+  <img width="1041" height="607" alt="image" src="https://github.com/user-attachments/assets/651d1120-1aa7-4969-8036-0e5cba8bf5aa" />
 
-B. Cleaning numeric fields
+- **Top Customers by Sales:**  
+  *Sean Miller* and *Tamara Chand* lead in total sales.
+<img width="1043" height="623" alt="image" src="https://github.com/user-attachments/assets/96cd2888-7bc7-4aa3-83a9-34fb6480b1de" />
 
-* The sales (and similar) columns sometimes had thousand separators (spaces or commas). These were removed (e.g. .str.replace(' ', '').str.replace(',', '')) before converting to numeric types.
+  
+- **Top Customers by Profit:**  
+  *Tamara Chand* and *Raymond Buch* are the most profitable.
 
-* This ensures aggregations (sum, mean) work correctly.
+  <img width="976" height="623" alt="image" src="https://github.com/user-attachments/assets/8c4583a9-44b2-4abc-8fba-210b43f72d8e" />
 
-C. Categorical conversions
+- **Most Frequently Sold Product:**  
+  *Staples* dominates in quantity sold.
+<img width="1139" height="620" alt="image" src="https://github.com/user-attachments/assets/5cfcf8d8-aeec-42ed-b210-a2cb57e3cd53" />
 
-* Columns like segment, state, category, sub_category, region etc. were cast to Pandas category dtype to reduce memory footprint and speed up grouping operations.
+---
 
-D. Feature engineering
+### ⚠️ **Loss-Making Products**
+Products such as **“Cisco TelePresence System EX90 Videoconferencing Unit”**, high-end printers, and certain furniture items show **negative profits**.  
+These require review for **pricing**, **discount**, or **cost structure optimization**.
+<img width="685" height="469" alt="image" src="https://github.com/user-attachments/assets/b6f18651-da14-406b-8639-b4df16bc323c" />
 
-* Created additional derived variables:
+---
 
-	* shipping_days and a binned category shipping_speed (Fast / Medium / Slow) from shipping duration.
+### 🌍 **Geographical Performance**
+- **Top Countries:** 🇺🇸 USA → 🇦🇺 Australia → 🇫🇷 France
+  <img width="1074" height="604" alt="image" src="https://github.com/user-attachments/assets/3b0556c3-9254-4ebf-96a0-9613867b6b43" />
 
-	* Flags like order_is_weekend, delivery_is_weekend, high_discount, etc.
+- **Top States:** England and California
+<img width="1481" height="678" alt="image" src="https://github.com/user-attachments/assets/4d48b72f-ce2a-43a1-951a-c5d6aea157b3" />
 
+- **Top Markets:** APAC > EU > US
+<img width="1033" height="604" alt="image" src="https://github.com/user-attachments/assets/85ce8ad5-6667-4418-a3e9-2521146cf3d7" />
 
+- **Top Regions:** Central and South  
+<img width="945" height="669" alt="image" src="https://github.com/user-attachments/assets/bdab2395-d894-458a-85cb-116c92ee05d2" />
 
-🧾 Key Insights & Business Takeaways
 
-Based on the analysis of the SuperStore Orders dataset, here are the key performance highlights and strategic insights derived from the data:
+💡 *APAC and Central regions are driving revenue growth, indicating strong international demand.*
 
-📊 Overall Business Performance:
+---
 
-| Metric                        | Value                                                 |
-| :---------------------------- | :---------------------------------------------------- |
-| **Total Sales**               | **$12,642,905**                                       |
-| **Total Profit**              | **$1,469,035**                                        |
-| **Profit Margin**             | **11.62%**                                            |
-| **Average Order Value (AOV)** | **$505.01**                                           |
-| **Total Orders**              | **25,035**                                            |
-| **Unique Customers**          | **795** (100% repeat customers → excellent retention) |
-| **Unique Products**           | **10,292**                                            |
-| **Average Shipping Days**     | **3.97 days**                                         |
+### 🚚 **Order & Shipping Behavior**
+- **Weekdays vs Weekends:** 88.6% of sales occur on weekdays.
+  <img width="599" height="414" alt="image" src="https://github.com/user-attachments/assets/511341bd-7cdc-4dfd-be06-0c261f2a41b2" />
 
+- **Shipping Speeds:**  
+  - *Medium-speed shipping* → 59.4% of total sales.
+<img width="554" height="397" alt="image" src="https://github.com/user-attachments/assets/e27b1b2a-2188-4c88-9a41-2160912a2b29" />
 
-💡 The business shows strong customer retention and consistent order volume, with a healthy overall profit margin.
+- **Shipping Speed vs Profit:**  
+  - Medium and fast deliveries correlate with higher profit margins.
+ <img width="1016" height="601" alt="image" src="https://github.com/user-attachments/assets/85573d45-4d08-426e-b510-12dfa82dbd9f" />
+ 
+- **Shipping Cost vs Profit:**  
+  - Weak correlation overall; some high-cost deliveries lead to losses.  
+<img width="616" height="503" alt="image" src="https://github.com/user-attachments/assets/c62dce23-6fb1-4b46-850d-a81c1eeb9215" />
 
 
-🏆 Top Performers
+💡 *Optimizing shipping policies could further improve margins.*
 
-Top-Selling Products:
+---
 
-  * Dominated by Technology and Furniture categories.
+### 💸 **Discount Impact**
+- **High Discounts (≥ 30%)** lead to **negative profit**, despite:  
+  - Only 20.86% of products  
+  - 13.73% of total sales
+ <img width="620" height="510" alt="image" src="https://github.com/user-attachments/assets/0ac1bc64-56ad-4e4f-9228-f5f220e534bb" />
+<img width="519" height="67" alt="image" src="https://github.com/user-attachments/assets/eb3c786b-63fb-4294-8dbc-a77e5852077e" />
 
-  * “Apple Smart Phone, Full Size” is the highest-selling product.
+⚠️ *Over-discounting directly erodes profitability.*
 
-Top-Profit Products:
+---
 
- * “Canon imageCLASS 2200 Advanced Copier” generates the most profit.
+### 🗂️ **Category & Sub-Category Insights**
+- **Top Categories by Sales:**  
+  1. Technology  
+  2. Furniture  
+  3. Office Supplies
 
-Top Customers by Sales:
+<img width="557" height="424" alt="image" src="https://github.com/user-attachments/assets/3e45155a-24a6-471e-adeb-8928a38db9a6" />
 
- * Sean Miller and Tamara Chand lead in total sales.
+- **Top Sub-Categories:**  
+  Phones, Copiers, Chairs
 
-Top Customers by Profit:
+<img width="930" height="611" alt="image" src="https://github.com/user-attachments/assets/76e15c36-0361-4c4a-844b-9554f0c3b1d3" />
 
- * Tamara Chand and Raymond Buch are the most profitable customers.
 
-Most Frequently Sold Product:
-	
- * Staples appears most often in orders, indicating strong office supply demand.
+- **Profitability:**  
+  - Technology → Highest sales & profit  
+  - Furniture → High volume, lower margins  
+<img width="988" height="588" alt="image" src="https://github.com/user-attachments/assets/489f9f8f-f437-4535-b66a-13cb62584589" />
 
+💡 *Technology is the key growth driver.*
 
+---
 
+### 📦 **Operational Insights**
+- **Order Priority vs Shipping Days:**  
+  - Higher-priority orders are delivered faster.
+<img width="553" height="504" alt="image" src="https://github.com/user-attachments/assets/c2b41838-a848-49d4-9cdc-b3bba183efb7" />
 
-⚠️ Loss-Making Products
+- **Discount vs Shipping Cost:**  
+  - No strong linear correlation — discounts appear independent of logistics costs.
+<img width="556" height="505" alt="image" src="https://github.com/user-attachments/assets/a0ede2e1-2515-44cc-99d6-82b136bfd455" />
 
-Some products — notably “Cisco TelePresence System EX90 Videoconferencing Unit” and certain printers and furniture items — show negative profit margins.
+---
 
-📉 These items likely suffer from pricing, cost, or discounting inefficiencies and warrant a profitability review.
+## 💡 Strategic Recommendations  
 
+1. **Optimize Discount Policy** — Limit discounts >30% to prevent profit loss.  
+2. **Audit Unprofitable Products** — Reevaluate pricing and supplier agreements.  
+3. **Leverage Repeat Customers** — Launch loyalty programs and personalized offers.  
+4. **Enhance Shipping Efficiency** — Focus on medium-speed deliveries for best ROI.  
+5. **Regional Marketing Focus** — Invest more in APAC and top-performing states.  
+6. **Expand Technology Category** — Promote and diversify top-performing tech SKUs.
 
+---
 
+## 🔍 Future Work  
 
-🌍 Geographical Performance
+- Implement **Customer Lifetime Value (CLV)** prediction.  
+- Develop **Churn Prediction Models** for proactive retention.  
+- Build a **Streamlit Dashboard** for real-time monitoring.  
+- Combine marketing campaign data to measure **ROI** per region/category.  
 
-Top Countries:
+---
 
-  * United States leads in sales, followed by Australia and France.
+## 📂 Project Structure  
 
-Top States:
-
-  * England and California drive the most revenue across categories.
-
-Top Markets:
-
-  * APAC region dominates in sales, followed by EU and US.
-
-Top Regions:
-
-  * Central and South regions are top contributors to total sales.
-
-
-💡 Regional segmentation highlights strong international performance, especially in APAC markets.
-
-
-🚚 Order & Shipping Behavior
-
-Weekday vs Weekend:
-
-  * 88.6% of sales occur on weekdays; only 11.4% on weekends.
-
-Shipping Speed Distribution:
-
-  * Medium-speed shipping accounts for 59.4% of sales.
-
-Profit vs Shipping Speed:
-
-  * Medium and fast shipments tend to yield better profit outcomes.
-
-Shipping Cost vs Profit:
-
-  * Weak correlation overall, though some high-cost shipments lead to losses.
-
-💡 Most customers prefer weekday orders and medium shipping, balancing cost and delivery time.
-
-
-
-💸 Discount Impact Analysis
-
-  * High Discounts (≥ 30%) lead to negative profit margins, despite:
-
-  * Representing only 20.86% of products
-
-  * Contributing 13.73% of total sales
-
-⚠️ Aggressive discounting erodes profitability. Businesses should reevaluate discount thresholds and apply them more selectively.
-
-
-
-🗂️ Category & Sub-Category Insights
-
-Top Categories by Sales:
-
-  * Technology
-
-  * Furniture
-
-  * Office Supplies
-
-Top Sub-Categories:
-
-  * Phones, Copiers, and Chairs lead sales.
-
-Category Profitability:
-
-  * Technology yields both the highest revenue and profit.
-
-  * Furniture and Office Supplies generate significant revenue but lower profit margins.
-
-💡 Technology remains the primary growth driver; furniture shows volume but thinner margins.
-
-
-📦 Operational Insights
-
-Order Priority vs Shipping Days:
-
-  * Higher priority orders have shorter average shipping durations — confirming efficient fulfillment workflows.
-
-Discount vs Shipping Cost:
-
-  * No strong linear relationship; discounts and logistics costs appear independent.
-
-
-🧠 Strategic Recommendations
-
-  * Reduce Over-Discounting: Limit discounts >30% to avoid margin erosion.
-
-  * Review Low-Profit SKUs: Audit pricing and supplier costs for loss-making items.
-
-  * Capitalize on Repeat Customers: Leverage loyalty programs and personalized offers for the 100% returning customer base.
-
-  * Optimize Shipping Strategy: Encourage medium-speed shipping options to balance speed and profitability.
-
-  * Regional Targeting: Focus marketing and inventory on APAC and high-performing regions (England, California).
-
-  * Technology Category Expansion: Increase assortment and marketing spend on tech products to maximize profit potential.
-
-
-The business is performing well overall, with strong customer retention and consistent sales growth. However, tightening discount policies and optimizing underperforming products could unlock significant additional profit.
-
+https://colab.research.google.com/drive/1VB0v6CB5Ad59pDLVuzsigbmXlLGrUYYN#scrollTo=LfZ8V0OP8iPQ
+  
 
 
 
