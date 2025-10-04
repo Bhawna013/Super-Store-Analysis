@@ -186,12 +186,11 @@ These require review for **pricing**, **discount**, or **cost structure optimiza
 
 ---
 
-## 🔍 Future Work  
+## 🧠 Conclusion
 
-- Implement **Customer Lifetime Value (CLV)** prediction.  
-- Develop **Churn Prediction Models** for proactive retention.  
-- Build a **Streamlit Dashboard** for real-time monitoring.  
-- Combine marketing campaign data to measure **ROI** per region/category.  
+The **SuperStore Sales Analysis** provides actionable insights into sales trends, customer retention, and profitability.
+
+The company demonstrates **strong repeat customer behavior** and **robust sales performance**, but profitability can be further improved through **discount optimization, targeted regional focus, and category management.**
 
 ---
 
