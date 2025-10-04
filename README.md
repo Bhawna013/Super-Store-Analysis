@@ -34,7 +34,6 @@ It explores key performance indicators (KPIs), customer segmentation, regional p
 - **Key Columns:**  
   - Order ID, Order Date, Ship Date, Customer Name, Segment, Region, Market, Category, Sub-Category, Sales, Profit, Discount, Shipping Cost  
 
-<img width="587" height="609" alt="image" src="https://github.com/user-attachments/assets/e3a2d73c-cc7f-487d-8e5a-5f0590685f0d" />
 
 ---
 
