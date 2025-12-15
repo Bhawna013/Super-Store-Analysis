@@ -1,8 +1,7 @@
 # 🛒 SuperStore Sales & Marketing Analytics  
 
 **Author:** *Bhawna Kumari*  
-**Tools Used:** Python, Pandas, Matplotlib, Seaborn  
-**Dataset:** [SuperStore Orders (Kaggle)](https://www.kaggle.com/datasets)  
+**Tools Used:** Python, Pandas, Matplotlib, Seaborn    
 **Objective:** To analyze e-commerce sales and marketing data to uncover trends, customer behavior, and actionable insights for business growth.
 
 ---
