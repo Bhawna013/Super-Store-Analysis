@@ -285,20 +285,36 @@ B. **Discount vs Shipping Cost:**
 
 ## 💡 Strategic Recommendations  
 
-1. **Optimize Discount Policy** — Limit discounts >30% to prevent profit loss.  
-2. **Audit Unprofitable Products** — Reevaluate pricing and supplier agreements.  
-3. **Leverage Repeat Customers** — Launch loyalty programs and personalized offers.  
-4. **Enhance Shipping Efficiency** — Focus on medium-speed deliveries for best ROI.  
-5. **Regional Marketing Focus** — Invest more in APAC and top-performing states.  
-6. **Expand Technology Category** — Promote and diversify top-performing tech SKUs.
+Based on the analysis, several recommendations can be made.
+
+1. **Review Furniture Profitability**
+- Although Furniture generates significant revenue, its profit margin is relatively low. Pricing strategies, supplier costs, and discount policies should be reviewed to improve profitability.
+
+2. **Reduce Excessive Discounting**
+- Products receiving large discounts should be monitored carefully. Promotional campaigns should focus on increasing profit rather than simply increasing sales volume.
+
+3. **Invest in High-Performing Categories**
+- Technology consistently outperformed other categories in both sales and profit. Additional marketing, inventory investment, and product expansion within this category may generate stronger returns.
+
+4. **Retain High-Value Customers**
+- Customers responsible for the highest revenue should be targeted through loyalty programs and personalized promotions to encourage repeat purchases.
+
+5. **Review Loss-Making Products**
+- Products with consistently negative profit should be investigated. Management should determine whether pricing adjustments, supplier negotiations, or product discontinuation would improve overall performance.
+
+6. **Expand Successful Regional Strategies**
+- Markets and regions with strong profitability can serve as models for improving performance in weaker geographic areas.
+
+7. **Continue Prioritizing Fast Shipping for Urgent Orders**
+- The shipping analysis indicates that critical and high-priority orders are fulfilled more quickly than lower-priority orders. Maintaining this operational efficiency supports customer satisfaction and service quality.
 
 ---
 
 ## 🧠 Conclusion
 
-The **SuperStore Sales Analysis** provides actionable insights into sales trends, customer retention, and profitability.
+This project demonstrates how exploratory data analysis can transform raw transactional data into meaningful business intelligence. Instead of focusing solely on visualizations, the analysis addresses practical business questions related to sales performance, profitability, customer behavior, regional trends, product performance, and operational efficiency.
 
-The company demonstrates **strong repeat customer behavior** and **robust sales performance**, but profitability can be further improved through **discount optimization, targeted regional focus, and category management.**
+The findings provide actionable insights that can support pricing decisions, inventory planning, customer retention strategies, and operational improvements. By combining statistical analysis with business interpretation, the project illustrates how data analytics can contribute to informed decision-making and long-term business growth.
 
 ---
 
